@@ -20,7 +20,7 @@ class LinkedList {
   // insert last node
   insertLast = (data) => {
     let newNode = new Node(data);
-    let current;
+    let current = this.head;
     if (!this.head) {
       this.head = newNode;
     } else {
@@ -40,14 +40,15 @@ class LinkedList {
   getAt = (idx) => {
     let current = this.head;
     if (idx >= 0 && idx <= this.size) {
-      for (let i = 1; i <= idx; i++) {
+      for (let i = 0; i <= idx; i++) {
         if (i === idx) {
-          console.log(current);
+          return current;
         } else {
           current = current.next;
         }
       }
     }
+    return null;
   };
   // join
   join = (seperator) => {
@@ -62,18 +63,21 @@ class LinkedList {
   // map
   map = (fn) => {
     let current = this.head;
-    const newList = new LinkedList();
-    while (current) {
-      newList.insertLast(fn(current.data));
+    // const newList = new LinkedList();
+
+    const startElementId = current.next.data.id;
+    while (current && current.data.id !== startElementId) {
+      current.data = fn(current.data);
+      // newList.insertLast(fn(current.data));
       current = current.next;
     }
-    return newList;
+    // return newList;
   };
   // filter
   filter = (fn) => {
     let current = this.head;
     let newList = new LinkedList();
-    for (let i = 1; i <= this.size; i++) {
+    for (let i = 0; i < this.size; i++) {
       if (fn(current.data)) {
         newList.insertLast(current.data);
       }
@@ -112,7 +116,7 @@ list.insertLast(400);
 list.insertLast(500);
 list.insertLast(600);
 list.printList();
-list.getAt(6);
+console.log(list.getAt(6));
 console.log(list.getSize());
 console.log(list.join(","));
 console.log(list.map(multiple));
