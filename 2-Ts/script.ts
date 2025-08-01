@@ -3,7 +3,7 @@ type Task = {
   title: string;
   isDone: Status;
 };
-type Status = "Done" | boolean;
+type Status = 'Done' | boolean;
 
 interface ToDoList {
   addTask: (title: string) => Task;
@@ -55,7 +55,7 @@ class MyToDoList implements ToDoList {
     if (choosenTask) {
       return this.Tasks.splice(choosenTask, 1);
     } else {
-      throw new Error("Task does not exist");
+      throw new Error('Task does not exist');
     }
   };
   changeStatus = (id: number, status: Status) => {
@@ -65,7 +65,7 @@ class MyToDoList implements ToDoList {
     if (choosenTask) {
       choosenTask.isDone = status;
     } else {
-      throw new Error("Task not found!");
+      throw new Error('Task not found!');
     }
   };
   search = (text: string) => {
@@ -83,13 +83,13 @@ class MyToDoList implements ToDoList {
   };
 }
 const TodoListNew = new MyToDoList();
-TodoListNew.addTask("running");
-TodoListNew.addTask("programming");
-TodoListNew.addTask("programming2");
+TodoListNew.addTask('running');
+TodoListNew.addTask('programming');
+TodoListNew.addTask('programming2');
 // TodoListNew.filter((t: number) => t.id === 1);
 // console.log(TodoListNew.deleteTask(2));
 // console.log(TodoListNew.deleteTask(3));
-console.log(TodoListNew.addTask("writing"));
+console.log(TodoListNew.addTask('writing'));
 // TodoListNew.changeStatus(1, 'Done');
-console.log(TodoListNew.search("wr"));
+console.log(TodoListNew.search('wr'));
 console.log(TodoListNew.showTasks());
