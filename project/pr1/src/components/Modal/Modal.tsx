@@ -2,14 +2,17 @@ import "../../assets/variables.css";
 
 interface ModalProps {
   className?: string;
+  children: React.ReactNode;
 }
 
-function Modal({ className }: ModalProps) {
+function Modal({ className, children }: ModalProps) {
   return (
     <>
       <div
-        className={`w-1/3 h-[62vh]  rounded-[2.5rem] bg-[var(--Background-white)] shadow-[var(--shadow-black)] ${className}`}
-      ></div>
+        className={`w-[33%] h-[62vh]  rounded-[2.5rem] bg-[var(--Background-white)] shadow-[var(--shadow-black)] ${className}`}
+      >
+        {children}
+      </div>
     </>
   );
 }
