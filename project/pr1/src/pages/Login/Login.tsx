@@ -1,6 +1,6 @@
 import AuthLayout from "../../components/AuthLayout/AuthLayout";
 import Modal from "../../components/Modal/Modal";
-import Input from "../../components/Input/Input";
+import Input from "../../components/AuthInput/AuthInput";
 import personIcon from "../../assets/icons/person.svg";
 import emailIcon from "../../assets/icons/gmail.svg";
 import keyIcon from "../../assets/icons/key.svg";
